@@ -5,7 +5,7 @@ tags: laravel,php,development
 ---
 ### What is a queue and why are they useful
 
-PHP is single threaded, so concurrency is managed in the software layer. Using Laravel's queue, developers have a first class abstraction for asynchronus concurrency. A queue is a way for a running application to prioritize and execute code asynchronously. One of the nice things about Laravel's implementation of the queue is the ability to refactor a performance bottle neck into a queue.
+PHP is single threaded, so concurrency is managed in the software layer. Using Laravel's queue, developers have a first class abstraction for asynchronus behavior. The queue helps the running application to prioritize and execute code asynchronously. One of the nice things about Laravel's implementation of the queue is the ability to refactor a performance bottle neck into a queued job.
 
 Imagine your working on a social media application which has `Communities`, and `Users`. `Users` can add `Conversations` to a `Community`. `Users` can then add a `Comment` to a `Conversation` or another `Comment` by filling out a small form built with Livewire and Volt.
 
@@ -114,7 +114,7 @@ As you can see, I've commented out the code that would previously dispatch a bro
 
 ### Broadcasting server events to a Livewire component
 
-Laravel's broadcasting capabilities, as of Laravel 11, are no longer configured by defautl. Websockets and RTC are managed by a separate server alongside your web server, and that server can either be managed by you or you can use a 3rd party provider to serve your websocket connections. If you already have websockets and broadcasting configured on your app, you can move on, but if not you may want to review [Laravel's docs](https://laravel.com/docs/11.x/broadcasting) on broadcasting. If you are starting from scratch, I would recommend using [Laravel Reverb](https://laravel.com/docs/11.x/reverb).
+Laravel's broadcasting capabilities, as of Laravel 11, are no longer configured by default. Websockets and RTC are managed by a separate server alongside your web server, and that server can either be managed by you or you can use a 3rd party provider to serve your websocket connections. If you already have websockets and broadcasting configured on your app, you can move on, but if not you may want to review [Laravel's docs](https://laravel.com/docs/11.x/broadcasting) on broadcasting. If you are starting from scratch, I would recommend using [Laravel Reverb](https://laravel.com/docs/11.x/reverb).
 
 Broadcasting is related to the queue, as the queue is tasked with prioritizing the events you are broadcasting, but a broadcast event can be received by a user client, and then the user can request a fresh set of data and a new UI, which is how they differ from a job on the queue. Similar to a job, an event can be set up using an artisan command: `php artisan make:event`.
 
@@ -274,7 +274,7 @@ new #[Layout('layouts.app')] class extends Component {
 </div>
 ```
 
-Under the hood of Reverb, laravel is using a package called `echo` to broadcast to the client browsers. Livewire can detect these events and react to them just like any other browser event, so you can modify the above code as follows to have it track the browser event that is generated when the server event is broadcast:
+Under the hood of Reverb, Laravel is using a package called `echo` to broadcast to the client browsers. Livewire can detect these events and react to them just like any other browser event, so you can modify the above code as follows to have it track the browser event that is generated when the server event is broadcast:
 {% codeblock lang:php first_line:2 %}
 ...
 new #[Layout('layouts.app')] class extends Component {
