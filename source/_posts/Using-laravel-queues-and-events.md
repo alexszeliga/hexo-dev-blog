@@ -7,7 +7,7 @@ tags: laravel,php,development
 
 PHP is single threaded, so concurrency is managed in the software layer. Using Laravel's queue, developers have a first class abstraction for asynchronus concurrency. A queue is a way for a running application to prioritize and execute code asynchronously. One of the nice things about Laravel's implementation of the queue is the ability to refactor a performance bottle neck into a queue.
 
-Imagine your working on a social media application which has `Communities`, and `Users`. `Users` can add `Conversations` to a `Community`. `Users` can then add a `Comment` to a `Conversation` or another `Comment` by filling out a small form buit with Livewire and Volt.
+Imagine your working on a social media application which has `Communities`, and `Users`. `Users` can add `Conversations` to a `Community`. `Users` can then add a `Comment` to a `Conversation` or another `Comment` by filling out a small form built with Livewire and Volt.
 
 ```PHP
 ...
@@ -41,7 +41,7 @@ new class extends Component {
     <x-primary-button>Submit</x-primary-button>
 </form>
 ```
-Lets say this results in a performance bottleneck in our application. We can extract the behavior from the front end and use a queued job triggered from the frontend, and allow the application to insert the new comment asynchronously.
+Let's say this results in a performance bottleneck in our application. We can extract the behavior from the front end and use a queued job triggered from the frontend, and allow the application to insert the new comment asynchronously.
 
 Since a comment can be left on a conversation or a comment, I'm using Laravel's polymorphic relationships to pass the `$root` of the comment into the constructor.
 
@@ -110,13 +110,13 @@ new class extends Component {
     <x-primary-button>Submit</x-primary-button>
 </form>
 ```
-As you can see, I've commented out the code that would previously dispatch a browser event after a comment was created. In the old code, that was fine. Single-threaded-PHP would line-by-line interpret the code and by the time the browser event was firing, we could be sure a new comment existed in the DB, but now we cannot be so sure. All things considered, the application may prioritize the generation of the browser event over the insertion of the comment. So the next step is to broadcast the event to our clients. While it might seem like the job is a perfectly good place to broadcast from, one of the other super-powers of jobs on the queue is they are isolated to maximize performance. The end result is that any data that you didn't inject into the job's constructor will not be available. The queue has access to the application in memory, but likely won't be able to track any changes in the app state.
+As you can see, I've commented out the code that would previously dispatch a browser event after a comment was created. In the old code, that was fine. Single-threaded-PHP would interpret the code line-by-line and by the time the browser event was firing, we could be sure a new comment existed in the DB, but now we cannot be so sure. All things considered, the application may prioritize the generation of the browser event over the insertion of the comment. So the next step is to broadcast the event to our clients. While it might seem like the job is a perfectly good place to broadcast from, one of the other superpowers of jobs on the queue is they are isolated to maximize performance. The end result is that any data that you didn't inject into the job's constructor will not be available. The queue has access to the application in memory, but likely won't be able to track any changes in the app state.
 
 ### Broadcasting server events to a Livewire component
 
-Laravel's broadcasting capabilities, as of Laravel 11, are no longer configured by defautl. Websockets and RTC are managed by a separate server along side your web server, and that server can either be managed by you or you can use a 3rd party provider to serve your websocket connections. If you already have websockets and broadcasting configured on your app, you can move on, but if not you may want to review [Laravel's docs](https://laravel.com/docs/11.x/broadcasting) on broadcasting. If you are starting from scratch, I would recommend using [Laravel Reverb](https://laravel.com/docs/11.x/reverb).
+Laravel's broadcasting capabilities, as of Laravel 11, are no longer configured by defautl. Websockets and RTC are managed by a separate server alongside your web server, and that server can either be managed by you or you can use a 3rd party provider to serve your websocket connections. If you already have websockets and broadcasting configured on your app, you can move on, but if not you may want to review [Laravel's docs](https://laravel.com/docs/11.x/broadcasting) on broadcasting. If you are starting from scratch, I would recommend using [Laravel Reverb](https://laravel.com/docs/11.x/reverb).
 
-Broadcasting is related the queue, as the queue is tasked with prioritizing the events you are broadcasting, but a broadcast event can be received by a user client, and then the user can request a fresh set of data and a new UI, which is how they differ from a job on the queue. Similar to a job, an event can be set up using an artisan command: `php artisan make:event`.
+Broadcasting is related to the queue, as the queue is tasked with prioritizing the events you are broadcasting, but a broadcast event can be received by a user client, and then the user can request a fresh set of data and a new UI, which is how they differ from a job on the queue. Similar to a job, an event can be set up using an artisan command: `php artisan make:event`.
 
 After creating the event, I set it up as follows:
 
@@ -150,7 +150,7 @@ class CommentCreated implements ShouldBroadcast
 I made two changes to the class as created by artisan.
 
 1. I had the class implement `ShouldBroadcast`
-2. I changed the `broadcastOn` method to return single channel instead of an array of channels, with the default being private.
+2. I changed the `broadcastOn` method to return a single channel instead of an array of channels, with the default being private.
 
 For a chat or other peer-to-peer style socket communication, you will want to make sure that the correct client is being communicated with and that they are authorized to be on the channel, but for updating a web page after an insert, using a public channel allows comments created by one user to show up in real-ish time for a second user viewing the same page. 
 
