@@ -17,7 +17,7 @@ The next hurdle is installing PHP. If you're using Ubuntu 22.04, then the defaul
 sudo add-apt-repository ppa:ondrej/php
 {% endcodeblock %}
 
-The next hurdle is installing PHP; you can't just install PHP8.2 by itself, becuase if you do it will install `apache2` as a dependency by default. It's a fine server, but we will be using NGINX. In order to avoid `apache2`, you need to install a set of packages that include `php-fpm` or `php-cli`. We will be using PHP FPM to handle our application so we're going to install PHP and our other services; Redis, MySQL, and NGINX with the following command:
+With the repository added, you can't just install PHP8.2 by itself. If you do it will install `apache2` as a dependency by default. It's a fine server, but we will be using NGINX. In order to avoid `apache2`, you need to install a set of packages that include `php-fpm` or `php-cli`. We will be using PHP FPM to handle our application so we're going to install PHP and our other services; Redis, MySQL, and NGINX with the following command:
 
 {% codeblock lang:bash line_number:false %}
 sudo apt install php8.2-fpm php8.2 unzip php8.2-curl php8.2-xml php8.2-mbstring php8.2-redis redis-server php8.2-mysql mysql-server nginx
