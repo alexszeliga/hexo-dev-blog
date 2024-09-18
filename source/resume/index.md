@@ -36,7 +36,7 @@ November 2022 - June 2023
 
 December 2018 - June 2020
 
-- Develope and maintained static marketing websites using WordPress, Gatsby, and HubSpot
+- Develop and maintain static marketing websites using WordPress, Gatsby, and HubSpot
 - Establish CI/CD via the Plesk Dashboard using BitBucket pipelines
 - Establish the use of version control
 - Integrate 3rd Party APIs, like PayTronix
@@ -45,8 +45,8 @@ December 2018 - June 2020
 
 July 2011 - May 2018
 
-- Establish and scale recieving process as company grew from 10-100m in annual revenue
-- Process customer orders balancing drop-shipments with RevZilla fullfillment centers
+- Establish and scale receiving process as company grew from 10-100m in annual revenue
+- Process customer orders balancing drop-shipments with RevZilla fulfillment centers
 - Build and run team to support customer service with logistics related queries
   - Point of contact with vendors relating to logistics of customer orders
 
