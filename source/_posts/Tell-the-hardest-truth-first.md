@@ -2,7 +2,7 @@
 layout: posts
 title: Tell the hardest truth first
 date: 2024-09-11 10:24:59
-tags:
+tags: [failure,learning,growth,ansible,php,laravel]
 ---
 The television show Twin Peaks was formative for me. When I was very young and it was on TV, I was way too young to be interested in grown-ups talking on TV. Then my aunt who provided me with my first computer and my first joint showed me a single wild and twisted scene from the show that she had recorded wherein a young woman tells the story of a dream-premonition that comes true. Later in life, after watching The Elephant Man and Eraserhead, a friend of mine was like "Have you ever seen the TV show Twin Peaks directed and written by David Lynch?" As the pilot started I felt strangely connected to the show and it's characters. By the time Maddy arrives in Twin peaks, I'm Rick Dalton:
 

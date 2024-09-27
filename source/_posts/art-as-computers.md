@@ -2,6 +2,9 @@
 title: "If this is AI, I'm both the dwarf AND the pliers."
 description: "Ai isn't scary"
 date: Mar 27 2023
+tags:
+    - ai
+    - chatgpt
 ---
 I signed up for ChatGPT and had the following converstaion:
 

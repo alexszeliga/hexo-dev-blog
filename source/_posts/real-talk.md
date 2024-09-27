@@ -2,6 +2,7 @@
 title: "Real Talk"
 description: "How LLMs work"
 date: Aug 21 2024
+tags: [ai,llm,ethics]
 ---
 ## LLMs will eventually, some day in the future, be as smart as humanity was at some point in the past.
  

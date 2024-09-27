@@ -2,6 +2,9 @@
 title: "Released this week, every week"
 description: "What it's like to force yourself to listen to new music."
 date: Jan 10 2024
+tags:
+    - music
+    - art
 ---
 
 Every week for the past several years I have listened to a new album. To me 'new' means an album which was released within 7 days of me listening to it. I have learned about a lot of stuff that I really like by doing this. I assure you that the practice started in a very grass-roots fashion. Over time, it became a challenge to myself to see how long I could keep it going on, and now it's just something that I do. Things like this have no right to get boring, though. So I'm going to try and take some time to document some of my experiences this year.

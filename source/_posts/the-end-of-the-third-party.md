@@ -2,6 +2,7 @@
 title: "The End of the (Third) Party"
 description: "Whys and wherefores of integrating third party code."
 date: Aug 8 2022
+tags: [firebase,nextjs,coding,libraries,philosophy]
 ---
 
 It's frustratingly stupidly difficult to integrate third party code into an existing project.

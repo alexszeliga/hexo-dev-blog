@@ -2,7 +2,7 @@
 layout: posts
 title: Laravel on an Ubuntu VM
 date: 2024-09-13 15:30:45
-tags: laravel,devops,nginx,ubuntu,mysql,redis
+tags: [laravel,devops,nginx,ubuntu,mysql,redis]
 published: true
 ---
 ## Development on a VM?

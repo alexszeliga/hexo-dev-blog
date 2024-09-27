@@ -1,7 +1,7 @@
 ---
 title: Using Laravel Queues, Jobs, and Broadcasting Events.
 date: 2024-08-28 14:59:49
-tags: laravel,php,development
+tags: [laravel,php,development]
 ---
 ### What is a queue and why are they useful
 

@@ -2,6 +2,10 @@
 title: "A young talented artist needs to be protected."
 description: "Art is human expression, humans are competitive people. Throwing props is harder than throwing shade for a drummer."
 date: Sep 25 2022
+tags:
+    - music
+    - art
+    - drums
 ---
 I was raised in a family of musicians and music aficionados. No instrument or music was out of bounds, but no one was allowed to like music just to like it. The lowest form of music was music that was meant to be ignored like in an elevator or the grocery store. Our troupe were bards, not scholars, so extra emphasis was laid on untrained and naturally gifted players.
 

@@ -2,6 +2,7 @@
 title: "PHP-in-Ruts"
 description: "I don't know how to build a web-app with Ruby-on-Rails, but if you hum a few bars..."
 date: Aug 21 2024
+tags: [laravel,php,livewire,mysql]
 ---
 I have spent the last four years of my life as a professional PHP developer working on a Laravel web app for a final mile logistics company. So a lot of what I did was to build specific web pages to support normal business operations like creating, retrieving, updating, and deleting orders, managing customers, managing user rights and permissions, and generating invoices and payments.
 
