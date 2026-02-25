@@ -13,6 +13,20 @@ Several years ago, I jumped career tracks into technology after a lifetime of cu
 
 ### DeliveryCircle LLC: Software Developer
 
+August December 2025 - Current
+
+- Product owner: public website project
+- Product owner: mobile project
+
+### Updater: Software Developer
+
+December 2024 - June 2025
+
+- Delivered fullstack features on web platform
+- Deployed Magic Link via Okta for whole app architecture
+
+### DeliveryCircle LLC: Software Developer
+
 August 2020 - August 2024
 
 - Delivered fullstack features on web platform
