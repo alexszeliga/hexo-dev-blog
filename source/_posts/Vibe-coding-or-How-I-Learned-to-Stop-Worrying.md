@@ -1,0 +1,20 @@
+---
+title: "Vibe Coding, or How I learned to Stop Worrying."
+description: "A short story about why I'm not afraid of using AI tools anymore."
+date: Feb 24 2026
+tags:
+    - AI
+    - Code
+    - Tech
+---
+Throughout this little thing that’s happened to us over the last several years I can be consistently quoted in several ways. As a bootcamp assistant I told the students that learning how to program is far less valuable than knowing how to communicate confidently about technology and tools within our space. When AI started to become a buzzword, I often said soon we won’t care who has written any given hunk of text, but we will be far more interested in who reviewed or edited it. As a technology professional, I was also often overhead saying that I wasn’t interesting in getting my hands dirty until two things happened: it became a product where I could understand the amortization model and feel fairly sure I wasn’t at risk of becoming a junkmail magnet, and that some company that I worked for was paying for me to have a good tier of access.
+
+I didn’t have “Flagship phone purchase habit provides access to a premium tier that becomes a totally indispensable tool for my day-to-day productivity” on my bingo card for 2026, but here we are.
+
+I pivoted into software development full time in 2018, got my first real job just at the beginning of 2019, so by the typical trajectory stated by my peers and within my network, I just hit my 7 year mark which means I’m a senior, and I feel it. Yet, I also feel the continuing grasp of imposter syndrome. I know I have the ability to select a stack, bootstrap an application, harden it, put the right people around it, establish the cadences, watch the logs, read the docs, defend the decisions, scale, pipeline, but I don’t have the proof. I have promises of letters of recommendation. I have strong interview skills, but even still I’d just be waving my hands at people making promises that my work ethic and experience don’t leave room for me to be a failure at this.
+
+And then I installed the Gemini CLI and started building. I experimented by building apps with a single simple prompt to see what happens. I made much more complicated prompts and tried torture tests to see what would happen like refactoring that whole codebase to change a core library or add end-to-end testing. Eventually, I fell into a pattern that clicked for me. I made it build something I’ve been promising myself I’d build in my spare time and on weekends. I also made it build it the way I would have wanted to have built it should I have ever had the time or energy. Testing and strict adherence to test driven development, using conventional commits, the project should be collaborative, the DX should be simple and well documented. The time and effort of such a project was greatly outside of the scope of my abilities as a person and only when I was between gigs did I ever feel like I could even spend time writing down my thoughts on the project. I was always too afraid to even start writing code. It was analysis paralysis mixed with imposter syndrome and chaser of a strong desire to get a new gig that always kept that project at arms length.
+
+Now, I’m watching the commit history of this thing come to life and start to tell the tale of decisions that I always knew I would have made, and several that I couldn’t have foreseen. To be clear, there are so many tiling window managers out there that [this one will maybe see the light of day and maybe some day someone will use it](https://github.com/alexszeliga/ug-lay), but for me it's much more important than that. It’s one repetition of making something that I would gladly hand over to a CEO and say “here you go boss, here’s our product, lets get working” if that CEO were silly enough to start a commercial project based on a tiling window manager.
+
+It’s one entire repetition of designing something from nothing and adhering to a set of engineering standards that you could get paid for while eliminating hand-waving and. You feel like you’re shaving your yaks with an industrial lawn mower.
