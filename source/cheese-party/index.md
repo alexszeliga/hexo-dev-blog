@@ -55,6 +55,12 @@ Let us know if you're coming so we can plan accordingly!
   margin-top: 1rem;
   font-weight: bold;
 }
+.cheese-party-form .form-hint {
+  margin-top: -0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: #555;
+}
 .cheese-party-form .form-message.error {
   color: #cc0000;
 }
@@ -70,12 +76,13 @@ Let us know if you're coming so we can plan accordingly!
   </div>
   <div class="form-field">
     <label for="cheese-party-email">Email</label>
-    <input type="email" id="cheese-party-email" name="email" required>
+    <input type="email" id="cheese-party-email" name="email">
   </div>
   <div class="form-field">
     <label for="cheese-party-phone">Phone</label>
-    <input type="tel" id="cheese-party-phone" name="phone" required>
+    <input type="tel" id="cheese-party-phone" name="phone">
   </div>
+  <p class="form-hint">Provide at least one way to contact you: email or phone.</p>
   <div class="form-field">
     <label for="cheese-party-party_size">Party Size</label>
     <select id="cheese-party-party-size" name="party_size" required>
@@ -107,6 +114,16 @@ Let us know if you're coming so we can plan accordingly!
   form.addEventListener('submit', function (event) {
     event.preventDefault();
     message.className = 'form-message';
+
+    // Email or phone is required (but not both): validate before submitting.
+    var email = form.elements['email'].value.trim();
+    var phone = form.elements['phone'].value.trim();
+    if (!email && !phone) {
+      message.className = 'form-message error';
+      message.textContent = 'Please provide an email or a phone number so we can reach you.';
+      return;
+    }
+
     message.textContent = 'Sending...';
 
     // The Apps Script endpoint parses a JSON body (JSON.parse(e.postData.contents)).
