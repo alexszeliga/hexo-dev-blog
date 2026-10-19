@@ -4,7 +4,7 @@ date: 2026-09-29 12:00:00
 ---
 It's that time of year again. I will note that the days seem to be getting shorter. I bet if we kept track over a couple years, we could probably figure out when the shortest one will be every year. Huh.
 
-Anyway: Cheese. It's the time of year where we start talking about cheese. Lois works on cheese puns. Alex actively avoids Dominic The Donkey. I can't think of anything else that tends to happen around this time of year sao since you're probably not busy, we should have a party about it.
+Anyway: Cheese. It's the time of year where we start talking about cheese. Lois works on cheese puns. Alex actively avoids Dominic The Donkey. I can't think of anything else that tends to happen around this time of year so since you're probably not busy, we should have a party about it.
 
 # Save the Date: Saturday, December 5th, 2026
 
@@ -13,7 +13,15 @@ Anyway: Cheese. It's the time of year where we start talking about cheese. Lois 
 
 That's all the details you need for now. If you have any questions, reach out to Alex or Lois directly.
 
-# Will You Be There?
+## What's The Cheese Party
+
+The cheese party is a tradition that goes back over 10 years. Alex and Lois buy way too much wine and open their house for a day of community, joy, and cheese.
+
+The only rule to cheese party is that you must bring cheese. You can bring a dish that includes cheese, or you can bring a cheese board, or you can bring a cheese with a side or cracker. You may bring wine, but you do not have to. You might want to bring beer if that's what you're into.
+
+Cheese Party is not a competition. Cheese Party brings people together, and competition is just a wedge between friends, so be assured that Cheese Party is not a competition. But if it were a competition, Alex will probably declare a winner before the end of the evening.
+
+## Will You Be There?
 
 Let us know if you're coming so we can plan accordingly!
 
