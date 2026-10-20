@@ -39,8 +39,7 @@ August 2020 - August 2024
   - Established unit testing
   - Updated dependency-locked Flutter app, migrated and tracked latest Flutter
   - Compiled and deployed binaries to mobile app stores
-  - Managed app store governance and app permission manifests
-  - Onboarded existing web team members
+  - Manage app store policy and admin
 
 ### LaunchCode: Classroom Assistant
 
