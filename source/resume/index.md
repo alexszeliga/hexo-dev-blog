@@ -15,8 +15,13 @@ Several years ago, I jumped career tracks into technology after a lifetime of cu
 
 August December 2025 - Current
 
-- Product owner: public website project
-- Product owner: mobile project
+- Product owner: Flutter multiplatform mobile app
+  - Ongoing maintenance of the app code
+  - Design, Built, and maintain GitHub CI/CD for both iOS and Play app stores
+  - Manage app store policy and admin
+- Product owner: Hubspot public website project
+  - Added responsive styles to old flat design by migrating to BootStrap
+  - Added source control for Hubspot assets
 
 ### Updater: Software Developer
 
@@ -67,15 +72,20 @@ July 2011 - May 2018
 ## Professional Skills
 
 - #### PHP
-  - 4 years experience with Laravel
+  - 5 years experience with Laravel
   - 2 years of experience with WordPress
 - #### Dart
-  - 3 years experience with Flutter
+  - 4 years experience with Flutter
 - #### Web
-  - 7 years experience with HTML, CSS, and JS
+  - 8 years experience with HTML, CSS, and JS
   - Familiar with React, Next.JS, Livewire and Alpine
 - #### MySQL
-  - 7 years of experience working with MySQL
+  - 8 years of experience working with MySQL
+- #### Other
+  - Docker; 8 years
+  - SysAdmin; 8 years
+  - HTTP, SSL/TLS, TCP, etc; 4 years professional experience
+  - vLLM, llama.cpp ~1 year
 
 ## Education
 
