@@ -1,5 +1,5 @@
 ---
-title: The Cheese Party is Saturday December 5, 2026
+title: The Cheese Party
 date: 2026-09-29 12:00:00
 ---
 It's that time of year again. I will note that the days seem to be getting shorter. I bet if we kept track over a couple years, we could probably figure out when the shortest one will be every year. Huh.
@@ -9,6 +9,7 @@ Anyway: Cheese. It's the time of year where we start talking about cheese. Lois 
 # Save the Date: Saturday, December 5th, 2026
 
 - **When:** Saturday, December 5th, 2026
+  - It's an open-house. Come any time after 2pm for family friendly cheese and fun. Stay after 6pm for more traditional cheese party excitement!
 - **Where:** Alex and Lois' house, Philadelphia
 
 That's all the details you need for now. If you have any questions, reach out to Alex or Lois directly.
