@@ -18,6 +18,11 @@
 
 .widget-wrap
   margin: 0 0 space-2
+  // On desktop the whole .outer is offset (see style.styl) so the first
+  // widget's title lines up with the post date; cancel its top margin.
+  // (The mobile/tablet `margin` shorthand below re-sets it there.)
+  &:first-child
+    margin-top: 0
   @media mq-mobile
     margin: 0 0 space-4
   @media mq-tablet

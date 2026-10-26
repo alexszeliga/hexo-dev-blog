@@ -87,6 +87,11 @@ body
   padding: 0 gutter-width
   @media mq-normal
     max-width: (column-width + gutter-width) * columns + gutter-width
+  // Align the top of the post list with the first sidebar widget:
+  // both sit under .outer, so give .outer a top margin (which floats
+  // #main and #sidebar together) and cancel the first widget's own margin.
+  @media mq-normal
+    padding-top: 2.4em
   // XL / large desktop: a noticeably wider gap between the body and the
   // tags/archives sidebar (and more room on the outer edges).
   @media mq-xl
@@ -163,8 +168,17 @@ if sidebar is left
   transition: 0.2s ease-out
   z-index: 1
   background: var(--color-bg)
-  .mobile-nav-on &
-    left: mobile-nav-width
+
+// The mobile nav is a bottom sheet, shown only while body has .mobile-nav-on.
+body.mobile-nav-on #wrap
+  overflow: hidden
+
+#mobile-nav-backdrop
+  position: absolute
+  inset: 0
+  background: rgba(0, 0, 0, 0.5)
+  z-index: 1
+  display: none
 
 @import "_extend"
 @import "_partial/header"

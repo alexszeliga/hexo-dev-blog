@@ -107,7 +107,8 @@
     $('.fancybox').fancybox();
   }
 
-  // Mobile nav
+  // Mobile nav (bottom sheet). Toggle via the hamburger or the close
+  // button; the dark backdrop closes it on tap.
   var $container = $('#container'),
     isMobileNavAnim = false,
     mobileNavAnimDuration = 200;
@@ -120,7 +121,7 @@
     setTimeout(function(){
       isMobileNavAnim = false;
     }, mobileNavAnimDuration);
-  }
+  };
 
   $('#main-nav-toggle').on('click', function(){
     if (isMobileNavAnim) return;
@@ -130,10 +131,20 @@
     stopMobileNavAnim();
   });
 
-  $('#wrap').on('click', function(){
+  $('#mobile-nav-close').on('click', function(){
+    if (isMobileNavAnim) return;
+
+    startMobileNavAnim();
+    $container.removeClass('mobile-nav-on');
+    stopMobileNavAnim();
+  });
+
+  $('#mobile-nav-backdrop').on('click', function(){
     if (isMobileNavAnim || !$container.hasClass('mobile-nav-on')) return;
 
+    startMobileNavAnim();
     $container.removeClass('mobile-nav-on');
+    stopMobileNavAnim();
   });
 // Theme toggle (light / dark)
 $('#theme-toggle').on('click', function(e){

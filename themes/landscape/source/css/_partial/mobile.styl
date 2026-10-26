@@ -1,14 +1,39 @@
-// Mobile off-canvas navigation drawer (<= 479px).
-@media mq-mobile
-  #mobile-nav
-    position: absolute
-    top: 0
-    left: 0
-    width: mobile-nav-width
-    height: 100%
-    background: var(--color-surface)
-    border-right: 1px solid var(--color-border)
-    z-index: 100
+// Mobile (<= 479px): the nav is a bottom sheet. It sits off-screen
+// (translateY(100%)) by default and slides up when body has
+// .mobile-nav-on. A backdrop + close button let the user dismiss it.
+#mobile-nav
+  position: absolute
+  bottom: 0
+  left: 0
+  right: 0
+  width: 100%
+  background: var(--color-surface)
+  border-top: 1px solid var(--color-border)
+  box-shadow: var(--shadow-2)
+  z-index: 2
+  transform: translateY(100%)
+  transition: transform 0.25s ease
+
+body.mobile-nav-on #mobile-nav
+  transform: translateY(0)
+
+#mobile-nav-backdrop
+  display: none
+
+body.mobile-nav-on #mobile-nav-backdrop
+  display: block
+
+#mobile-nav-close
+  position: absolute
+  top: 10px
+  right: 16px
+  background: none
+  border: none
+  color: var(--color-faint)
+  font-size: 18px
+  cursor: pointer
+  &:hover, &:focus
+    color: var(--color-text)
 
 @media mq-mobile
   .mobile-nav-link
