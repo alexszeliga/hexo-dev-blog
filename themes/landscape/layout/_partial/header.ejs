@@ -19,6 +19,10 @@
         <% } %>
       </nav>
       <nav id="sub-nav">
+        <a id="theme-toggle" class="nav-icon" href="javascript:void(0)" role="button" aria-label="Toggle color theme" title="Toggle light / dark">
+          <span class="fa fa-moon"></span>
+          <span class="fa fa-sun"></span>
+        </a>
         <% if (theme.links) { %>
           <% for (const i in theme.links) {%>
             <a class="nav-icon" href="<%- url_for(theme.links[i]) %>"><span class="fa fa-<%= i %>"></span></a>

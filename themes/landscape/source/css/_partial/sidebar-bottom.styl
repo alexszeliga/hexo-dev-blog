@@ -1,27 +1,23 @@
+// Used only when the theme is configured with `sidebar: bottom`.
+// The user's config uses `sidebar: right`, so this is a fallback.
 .widget-wrap
   margin-bottom: block-margin !important
   @media mq-normal
     column(main-column)
 
 .widget-title
-  color: #ccc
+  color: var(--color-faint)
   text-transform: uppercase
   letter-spacing: 2px
-  margin-bottom: .5em
+  margin-bottom: 0.5em
   line-height: 1em
-  font-weight: bold
+  font-weight: 600
 
 .widget
-  color: color-grey
+  color: var(--color-muted)
   ul, ol
     li
       display: inline-block
-      zoom:1
-      *display:inline
-      padding-right: .75em
-/* Having problems getting balanced white space between items
-    li:before
-      content: " | "
-    li:first-child:before
-      content: none
- */
+      zoom: 1
+      *display: inline
+      padding-right: 0.75em

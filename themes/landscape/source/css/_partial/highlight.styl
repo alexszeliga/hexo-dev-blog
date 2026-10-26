@@ -1,45 +1,51 @@
-// https://github.com/chriskempson/tomorrow-theme
-highlight-background = #2d2d2d
-highlight-current-line = #393939
-highlight-selection = #515151
-highlight-foreground = #cccccc
-highlight-comment = #999999
-highlight-red = #f2777a
-highlight-orange = #f99157
-highlight-yellow = #ffcc66
-highlight-green = #99cc99
-highlight-aqua = #66cccc
-highlight-blue = #6699cc
-highlight-purple = #cc99cc
+// Code block + syntax highlighting. Palette is tokenized so it has
+// both a light and a dark variant (see the [data-theme] blocks below).
+// We intentionally avoid multiplying the fluid (clamp) tokens here and
+// use em / % equivalents instead.
+
+// Light-mode syntax palette (defaults)
+hl-comment = #7a8599
+hl-tag = #d16d84
+hl-attr = #d1913f
+hl-keyword = #7c5fd0
+hl-string = #3f9d6a
+hl-number = #c98a2b
+hl-builtin = #3a6fd0
+hl-constant = #c98a2b
+hl-classname = #2f8f57
+hl-function = #3a6fd0
+hl-hexcolor = #39b3a0
 
 $code-block
-  background: highlight-background
-  margin: 0 article-padding * -1
-  padding: 15px article-padding
+  background: var(--color-code-bg)
+  margin: 0 calc(-1 * 24px)
+  padding: 1em 24px
   border-style: solid
-  border-color: color-border
+  border-color: var(--color-border)
   border-width: 1px 0
   overflow: auto
-  color: highlight-foreground
-  line-height: font-size * line-height
+  color: var(--color-text)
+  line-height: 1.6
 
 $line-numbers
-  color: #666
+  color: var(--color-faint)
   font-size: 0.85em
 
 .article-entry
   pre, code
     font-family: font-mono
   code
-    background: color-background
-    text-shadow: 0 1px #fff
-    padding: 0 0.3em
+    background: var(--color-code-bg)
+    padding: 0.1em 0.4em
+    border-radius: 4px
+    font-size: 0.92em
   pre
     @extend $code-block
     code
       background: none
-      text-shadow: none
       padding: 0
+    .highlight
+      background: none
   .highlight
     @extend $code-block
     pre
@@ -55,7 +61,7 @@ $line-numbers
     figcaption
       clearfix()
       font-size: 0.85em
-      color: highlight-comment
+      color: var(--color-faint)
       line-height: 1em
       margin-bottom: 1em
       a
@@ -70,16 +76,16 @@ $line-numbers
         text-align: right
         padding-right: 20px
     .line
-      height: font-size * line-height
+      display: block
     .line.marked
-      background: highlight-selection
+      background: var(--color-surface-2)
   .gist
-    margin: 0 article-padding * -1
+    margin: 0 calc(-1 * 24px)
     border-style: solid
-    border-color: color-border
+    border-color: var(--color-border)
     border-width: 1px 0
-    background: highlight-background
-    padding: 15px article-padding 15px 0
+    background: var(--color-code-bg)
+    padding: 1em article-padding 1em 0
     .gist-file
       border: none
       font-family: font-mono
@@ -99,65 +105,63 @@ $line-numbers
         padding: 0
         border: none
       .gist-meta
-        background: highlight-background
-        color: highlight-comment
+        background: var(--color-code-bg)
+        color: var(--color-faint)
         font: 0.85em font-sans
-        text-shadow: 0 0
         padding: 0
         margin-top: 1em
         margin-left: article-padding
         a
-          color: color-link
+          color: var(--color-accent)
           font-weight: normal
           &:hover
             text-decoration: underline
 
+// ---- Syntax colors: light (default) ----
 pre
-  .comment
-  .title
-    color: highlight-comment
-  .variable
-  .attribute
-  .tag
-  .regexp
-  .ruby .constant
-  .xml .tag .title
-  .xml .pi
-  .xml .doctype
-  .html .doctype
-  .css .id
-  .css .class
-  .css .pseudo
-    color: highlight-red
-  .number
-  .preprocessor
-  .built_in
-  .literal
-  .params
-  .constant
-    color: highlight-orange
-  .class
-  .ruby .class .title
-  .css .rules .attribute
-    color: highlight-green
-  .string
-  .value
-  .inheritance
-  .header
-  .ruby .symbol
-  .xml .cdata
-    color: highlight-green
+  .comment, .title
+    color: hl-comment
+  .variable, .attribute, .tag, .regexp, .ruby .constant,
+  .xml .tag .title, .xml .pi, .xml .doctype, .html .doctype,
+  .css .id, .css .class, .css .pseudo
+    color: hl-tag
+  .number, .preprocessor, .literal, .params, .constant
+    color: hl-number
+  .class, .ruby .class .title, .css .rules .attribute
+    color: hl-classname
+  .string, .value, .inheritance, .header, .ruby .symbol, .xml .cdata
+    color: hl-string
   .css .hexcolor
-    color: highlight-aqua
-  .function
-  .python .decorator
-  .python .title
-  .ruby .function .title
-  .ruby .title .keyword
-  .perl .sub
-  .javascript .title
-  .coffeescript .title
-    color: highlight-blue
-  .keyword
-  .javascript .function
-    color: highlight-purple
+    color: hl-hexcolor
+  .function, .python .decorator, .python .title, .ruby .function .title,
+  .ruby .title .keyword, .perl .sub, .javascript .title, .coffeescript .title
+    color: hl-function
+  .keyword, .javascript .function
+    color: hl-keyword
+  .built_in
+    color: hl-builtin
+
+// ---- Syntax colors: dark variant (brighter, reads on navy) ----
+[data-theme="dark"] pre
+  .comment, .title
+    color: #7a8599
+  .variable, .attribute, .tag, .regexp, .ruby .constant,
+  .xml .tag .title, .xml .pi, .xml .doctype, .html .doctype,
+  .css .id, .css .class, .css .pseudo
+    color: #f0a3b5
+  .number, .preprocessor, .literal, .params, .constant
+    color: #e0a35c
+  .class, .ruby .class .title, .css .rules .attribute
+    color: #6fd39a
+  .string, .value, .inheritance, .header, .ruby .symbol, .xml .cdata
+    color: #8fd6a8
+  .css .hexcolor
+    color: #6fd6c0
+  .function, .function, .python .decorator, .python .title,
+  .ruby .function .title, .ruby .title .keyword, .perl .sub,
+  .javascript .title, .coffeescript .title
+    color: #8fb3ff
+  .keyword, .javascript .function
+    color: #b79cff
+  .built_in
+    color: #7fb0ff

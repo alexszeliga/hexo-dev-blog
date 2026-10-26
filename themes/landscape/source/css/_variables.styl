@@ -1,61 +1,95 @@
+// ============================================================
+// Design tokens — reskinned Landscape theme.
+//
+// Two layers:
+//   1) Legacy color/size variables (raw literals) kept so the
+//      *.styl files that have not been migrated yet still compile.
+//      Each is re-pointed at a CSS custom property once migrated.
+//   2) The real palette lives in :root in style.styl as CSS
+//      custom properties, so light / dark mode is one swap.
+//
+// Type + spacing sizes use clamp() => fluid, mobile-first scale.
+// ============================================================
+
 // Config
 support-for-ie = false
 vendor-prefixes = webkit moz ms official
 
-// Colors
-color-default = #555
-color-grey = #999
-color-border = #ddd
-color-link = #258fb8
-color-background = #eee
-color-sidebar-text = #777
-color-widget-background = #ddd
-color-widget-border = #ccc
-color-footer-background = #262a30
-color-mobile-nav-background = #191919
-color-twitter = #00aced
-color-facebook = #3b5998
-color-pinterest = #cb2027
-color-linkedin = #0077B5
+// ---- Colors (legacy names; migrated files use var(--...)) ----
+color-default = #1b2230
+color-grey = #5a6478
+color-border = #dde3ee
+color-link = #3f6fd6
+color-background = #f4f6fa
+color-sidebar-text = #5a6478
+color-widget-background = #e9edf4
+color-widget-border = #dde3ee
+color-footer-background = #141926
+color-mobile-nav-background = #ffffff
+color-twitter = #1d9bf0
+color-facebook = #1877f2
+color-pinterest = #e60023
+color-linkedin = #0a66c2
 
-// Fonts
+// ---- Typography ----
 font-sans = -apple-system, BlinkMacSystemFont,
     "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
     "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif
 font-serif = Georgia, "Times New Roman", serif
-font-mono = "Source Code Pro", Consolas, Monaco, Menlo, Consolas, monospace
+font-mono = ui-monospace, "SF Mono", Menlo, Consolas,
+    "Liberation Mono", monospace
 font-icon = ForkAwesome
-font-size = 14px
-line-height = 1.6em
-line-height-title = 1.1em
 
-// Header
-logo-size = 40px
-subtitle-size = 16px
-banner-height = 300px
+// Fluid type scale (mobile -> desktop via clamp)
+font-size = clamp(16px, 0.92vw + 13.5px, 19px)    // body
+font-size-lg = clamp(1.05rem, 0.4vw + 1rem, 1.2rem)
+font-title = clamp(1.9rem, 3.4vw + 0.9rem, 3.25rem)  // post/page H1
+font-h2 = clamp(1.4rem, 2vw + 0.9rem, 2rem)
+font-h3 = clamp(1.2rem, 1.3vw + 0.9rem, 1.5rem)
+font-h4 = clamp(1.05rem, 0.9vw + 0.85rem, 1.3rem)
+
+line-height = 1.75em
+line-height-title = 1.2em
+
+// ---- Header ----
+logo-size = clamp(1.6rem, 2.4vw + 0.9rem, 2.75rem)
+subtitle-size = clamp(1rem, 0.9vw + 0.75rem, 1.35rem)
+banner-height = clamp(150px, 17vw, 280px)
 banner-url = hexo-config("banner")
 
 sidebar = hexo-config("sidebar")
 
-// Layout
-block-margin = 50px
-article-padding = 20px
+// ---- Spacing scale (fluid) ----
+space-1 = 8px
+space-2 = 16px
+space-3 = clamp(20px, 2.4vw, 32px)
+space-4 = clamp(32px, 4vw, 56px)
+space-5 = clamp(48px, 6vw, 88px)
+space-6 = clamp(72px, 9vw, 140px)
+
+// Content rhythm
+block-margin = space-4
+article-padding = space-3
+content-width = 70ch
 mobile-nav-width = 280px
+
+// Grid columns (used only inside the desktop sidebar media query)
 main-column = 9
 sidebar-column = 3
+
+// ---- Breakpoints (mobile-first: base styles = phone,
+//      min-width queries progressively add the layout) ----
+mq-mobile = "screen and (max-width: 479px)"
+mq-tablet = "screen and (min-width: 480px) and (max-width: 820px)"
+mq-normal = "screen and (min-width: 821px)"
 
 if sidebar and sidebar isnt bottom
   _sidebar-column = sidebar-column
 else
   _sidebar-column = 0
 
-// Grids
+// Grid math (retained for the .outer / column helpers)
 column-width = 80px
 gutter-width = 20px
 columns = main-column + _sidebar-column
-
-// Media queries
-mq-mobile = "screen and (max-width: 479px)"
-mq-tablet = "screen and (min-width: 480px) and (max-width: 767px)"
-mq-normal = "screen and (min-width: 768px)"

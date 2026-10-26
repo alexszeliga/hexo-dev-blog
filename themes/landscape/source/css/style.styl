@@ -3,6 +3,50 @@
 @import "_util/mixin"
 @import "_util/grid"
 
+// ============================================================
+// Palette — light + dark. Every surface/ink/border is a CSS
+// custom property so dark mode is a [data-theme] swap.
+// The "space" motif: light mode is a soft off-white with a
+// calm space-blue accent; dark mode is a deep navy, not black.
+// ============================================================
+:root
+  color-scheme: light dark
+  --color-bg: #f4f6fa
+  --color-surface: #ffffff
+  --color-surface-2: #e9edf4
+  --color-text: #1b2230
+  --color-muted: #5a6478
+  --color-faint: #8a93a6
+  --color-border: #dde3ee
+  --color-border-strong: #c3cbdc
+  --color-accent: #3f6fd6
+  --color-accent-strong: #2c55b8
+  --color-accent-soft: #e5edff
+  --color-footer-bg: #141926
+  --color-footer-text: #c7cdd9
+  --color-code-bg: #eef1f7
+  --shadow-1: 0 1px 2px rgba(16, 24, 40, 0.06), 0 1px 3px rgba(16, 24, 40, 0.1)
+  --shadow-2: 0 6px 20px rgba(16, 24, 40, 0.12)
+
+[data-theme="dark"]
+  color-scheme: dark
+  --color-bg: #0d1220
+  --color-surface: #151b2c
+  --color-surface-2: #1d2438
+  --color-text: #e6e9f0
+  --color-muted: #9aa3b7
+  --color-faint: #6f7890
+  --color-border: #283149
+  --color-border-strong: #38425e
+  --color-accent: #84a9ff
+  --color-accent-strong: #a9c4ff
+  --color-accent-soft: #1a2642
+  --color-footer-bg: #0a0e1a
+  --color-footer-text: #9aa3b7
+  --color-code-bg: #101624
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.4)
+  --shadow-2: 0 8px 24px rgba(0, 0, 0, 0.5)
+
 global-reset()
 
 input, button
@@ -16,15 +60,22 @@ html, body, #container
   height: 100%
 
 body
-  background: color-background
-  font: font-size font-sans
+  background: var(--color-bg)
+  color: var(--color-text)
+  font: font-size/1.75 font-sans
   -webkit-text-size-adjust: 100%
+  transition: background-color 0.25s ease, color 0.25s ease
 
+// Mobile-first: a single centered column by default. The
+// desktop two-column (content + sidebar) is added under
+// mq-normal in the section below.
 .outer
   clearfix()
-  max-width: (column-width + gutter-width) * columns + gutter-width
+  max-width: 640px
   margin: 0 auto
   padding: 0 gutter-width
+  @media mq-normal
+    max-width: (column-width + gutter-width) * columns + gutter-width
 
 .inner
   column(columns)
@@ -52,10 +103,12 @@ body
   left: 0
   transition: 0.2s ease-out
   z-index: 1
-  background: color-background
+  background: var(--color-bg)
   .mobile-nav-on &
     left: mobile-nav-width
 
+// Desktop: give the main content its column; on tablet the
+// sidebar (if right) is hidden and content spans full width.
 if sidebar and sidebar isnt bottom
   #main
     @media mq-normal
