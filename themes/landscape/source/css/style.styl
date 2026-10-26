@@ -49,12 +49,21 @@
 
 global-reset()
 
-input, button
+input, button, select, textarea
   margin: 0
   padding: 0
+  background: transparent
+  color: inherit
   &::-moz-focus-inner
     border: 0
     padding: 0
+
+a
+  color: var(--color-accent)
+  text-underline-offset: 2px
+
+img
+  max-width: 100%
 
 html, body, #container
   height: 100%
@@ -66,19 +75,50 @@ body
   -webkit-text-size-adjust: 100%
   transition: background-color 0.25s ease, color 0.25s ease
 
-// Mobile-first: a single centered column by default. The
-// desktop two-column (content + sidebar) is added under
-// mq-normal in the section below.
+// ------------------------------------------------------------
+// Mobile-first layout.
+// Base (phone): a single centered column. The desktop sidebar
+// is hidden at this width (widgets stack below as "Explore").
+// ------------------------------------------------------------
 .outer
   clearfix()
-  max-width: 640px
+  max-width: 100%
   margin: 0 auto
   padding: 0 gutter-width
   @media mq-normal
     max-width: (column-width + gutter-width) * columns + gutter-width
 
+// Base: main content spans the full (single) column on phones.
+#main
+  display: inline
+  float: left
+  width: 100%
+
+// Sidebar is hidden on phones + tablets and only gains its
+// (demoted) column on wide screens.
+#sidebar
+  display: none
+  @media mq-normal
+    display: inline
+    float: right
+    width: (total-width * (((gutter-width + column-width) * sidebar-column) - gutter-width) / gridsystem-width(columns))
+
+// On tablet (480-820px): content stays full-width, sidebar hidden.
+// On wide screens (>=821px): content = 9 cols, sidebar = 3 cols (right).
+if sidebar and sidebar isnt bottom
+  #main
+    @media mq-normal
+      width: (total-width * ((((gutter-width + column-width) * main-column) - gutter-width) / gridsystem-width(columns)))
+
+if sidebar is left
+  @media mq-normal
+    #main
+      float: right
+    #sidebar
+      float: left
+
 .inner
-  column(columns)
+  // (kept for API compatibility; width now driven by #main/#sidebar)
 
 .left, .alignleft
   float: left
@@ -107,18 +147,6 @@ body
   .mobile-nav-on &
     left: mobile-nav-width
 
-// Desktop: give the main content its column; on tablet the
-// sidebar (if right) is hidden and content spans full width.
-if sidebar and sidebar isnt bottom
-  #main
-    @media mq-normal
-      column(main-column)
-
-if sidebar is left
-  @media mq-normal
-    #main
-      float: right
-
 @import "_extend"
 @import "_partial/header"
 @import "_partial/article"
@@ -130,3 +158,9 @@ if sidebar is left
 
 if sidebar
   @import "_partial/sidebar"
+
+// Respect reduced-motion preferences.
+@media (prefers-reduced-motion: reduce)
+  *, *::before, *::after
+    transition: none !important
+    animation: none !important

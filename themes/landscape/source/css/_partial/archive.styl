@@ -23,13 +23,19 @@
 
 .archive-article-inner
   @extend $block
-  padding: 14px 18px
-  margin-bottom: 14px
+  padding: 20px 22px
+  margin-bottom: 18px
+  transition: transform 0.15s ease, box-shadow 0.15s ease
+
+.archive-article:hover
+  .archive-article-inner
+    transform: translateY(-2px)
+    box-shadow: var(--shadow-2)
 
 .archive-article-title
   text-decoration: none
-  font-size: font-h3
-  font-weight: 600
+  font-size: font-h4
+  font-weight: 700
   color: var(--color-text)
   line-height: 1.35
   transition: color 0.2s
@@ -37,7 +43,9 @@
     color: var(--color-accent)
 
 .archive-article-footer
-  margin-top: 0.6em
+  margin-top: 0.8em
+  color: var(--color-faint)
+  font-size: 0.85em
 
 .archive-article-date
   color: var(--color-faint)

@@ -1,16 +1,34 @@
-// Desktop-only aside. On mobile the widgets are stacked at the bottom
-// (handled in the base rules below / mobile.styl), so the aside is
-// hidden until the sidebar breakpoint.
+// Mobile-first: on phones + tablets the widgets render as a quiet
+// single-column "Explore" block below the content. On wide screens the
+// aside becomes the demoted right sidebar column.
 #sidebar
+  @media mq-mobile
+    display: block
+    clear: both
+    margin-top: space-4
+
+  @media mq-tablet
+    display: block
+    clear: both
+    margin-top: space-4
+
   @media mq-normal
+    display: inline
+    float: right
     column(sidebar-column)
 
 .widget-wrap
-  margin: block-margin 0
+  margin: 0 0 space-2
+  @media mq-mobile
+    margin: 0 0 space-4
+  @media mq-tablet
+    margin: 0 0 space-4
+  @media mq-normal
+    margin: 0 0 space-4
 
 .widget-title
   @extend $block-caption
-  font-size: 0.8em
+  font-size: 0.78em
 
 .widget
   color: var(--color-muted)
@@ -26,16 +44,11 @@
     &:hover
       text-decoration: underline
   ul, ol, dl
+    margin: 0
+    padding: 0
     ul, ol, dl
       margin-left: 15px
       list-style: disc
-
-// On mobile: a quiet "Explore" block stacked after the content.
-#sidebar
-  @media mq-mobile, mq-tablet
-    margin-top: space-4
-    .widget
-      background: var(--color-surface)
 
 .tagcloud
   a
