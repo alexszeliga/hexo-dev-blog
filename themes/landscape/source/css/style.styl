@@ -87,6 +87,17 @@ body
   padding: 0 gutter-width
   @media mq-normal
     max-width: (column-width + gutter-width) * columns + gutter-width
+  // XL / large desktop: a noticeably wider gap between the body and the
+  // tags/archives sidebar (and more room on the outer edges).
+  @media mq-xl
+    padding: 0 grid-padding
+
+// On ultrawide screens (>=2400px) cap the whole page at a comfortable
+// width so it doesn't stretch edge-to-edge.
+.inner
+  @media mq-xl
+    max-width: 1200px
+    margin: 0 auto
 
 // Base: main content spans the full (single) column on phones.
 #main
@@ -94,31 +105,39 @@ body
   float: left
   width: 100%
 
-// Sidebar is hidden on phones + tablets and only gains its
-// (demoted) column on wide screens.
+// Sidebar is hidden on phones + tablets. On wide screens it becomes a
+// demoted right column; its width and gap are percentages of the .outer,
+// so the gutter (set on .outer) scales up cleanly at the xl breakpoint.
 #sidebar
   display: none
-  @media mq-normal
-    display: inline
-    float: right
-    width: (total-width * (((gutter-width + column-width) * sidebar-column) - gutter-width) / gridsystem-width(columns))
 
-// On tablet (480-820px): content stays full-width, sidebar hidden.
-// On wide screens (>=821px): content = 9 cols, sidebar = 3 cols (right).
 if sidebar and sidebar isnt bottom
+  #sidebar
+    @media mq-normal
+      display: inline
+      float: right
+      width: 22.7%
+      margin-left: 2.4%   // 5% of outer at xl -> the widened gap
+      @media mq-xl
+        margin-left: 5%
   #main
     @media mq-normal
-      width: (total-width * ((((gutter-width + column-width) * main-column) - gutter-width) / gridsystem-width(columns)))
+      width: 74.9%         // 100% - 22.7% - 2.4% gap
+      @media mq-xl
+        width: 72.3%       // 100% - 22.7% - 5% gap
 
 if sidebar is left
   @media mq-normal
     #main
       float: right
+      width: 74.9%
+      @media mq-xl
+        width: 72.3%
     #sidebar
       float: left
 
 .inner
-  // (kept for API compatibility; width now driven by #main/#sidebar)
+  // (kept for API compatibility; width now driven by .inner max-width on xl, above)
 
 .left, .alignleft
   float: left

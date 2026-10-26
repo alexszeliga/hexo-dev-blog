@@ -7,7 +7,7 @@
     position: absolute
     left: 0
     right: 0
-    height: 40px
+    height: 56px
   &:before
     top: 0
     background: linear-gradient(rgba(0, 0, 0, 0.32), transparent)
@@ -60,7 +60,7 @@ $logo-text
   letter-spacing: 1px
 
 #subtitle-wrap
-  margin-top: subtitle-size
+  margin-top: 0.5rem
 
 #main-nav
   float: left
@@ -74,7 +74,7 @@ $nav-link
   text-shadow: 0 1px rgba(0, 0, 0, 0.35)
   transition: opacity 0.2s
   display: block
-  padding: 20px 15px
+  padding: 12px 18px
   &:hover, &:focus
     opacity: 1
 
@@ -83,8 +83,7 @@ $nav-link
   text-align: center
   font-size: font-size
   width: font-size
-  height: font-size
-  padding: 20px 15px
+  padding: 12px 18px
   position: relative
   cursor: pointer
 
@@ -105,7 +104,7 @@ $nav-link
   @extend $nav-link
   text-align: center
   width: auto
-  padding: 20px 15px
+  padding: 12px 18px
   [data-theme="light"] &
     .fa-moon
       display: none
