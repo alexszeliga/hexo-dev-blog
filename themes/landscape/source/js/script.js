@@ -107,8 +107,8 @@
     $('.fancybox').fancybox();
   }
 
-  // Mobile nav (bottom sheet). Toggle via the hamburger or the close
-  // button; the dark backdrop closes it on tap.
+  // Mobile nav. Toggling #container's .mobile-nav-on pushes the content
+  // aside and reveals the nav (see style.styl / mobile.styl).
   var $container = $('#container'),
     isMobileNavAnim = false,
     mobileNavAnimDuration = 200;
@@ -139,6 +139,7 @@
     stopMobileNavAnim();
   });
 
+  // Tapping the dark backdrop (or anywhere outside the nav) dismisses it.
   $('#mobile-nav-backdrop').on('click', function(){
     if (isMobileNavAnim || !$container.hasClass('mobile-nav-on')) return;
 

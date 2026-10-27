@@ -147,6 +147,19 @@ if sidebar is left
 .left, .alignleft
   float: left
 
+// Desktop: the first post carries an .article margin-top, but the sidebar
+// doesn't, so its first widget would sit above the first post date. Give
+// the sidebar the same top offset and zero the post's own top margin so the
+// 'Tags' title lines up with the post date. Mobile/tablet are unaffected
+// (the sidebar is hidden there).
+#sidebar
+  @media mq-normal
+    margin-top: space-4
+
+.article
+  @media mq-normal
+    margin-top: 0
+
 .right, .alignright
   float: right
 
@@ -168,17 +181,24 @@ if sidebar is left
   transition: 0.2s ease-out
   z-index: 1
   background: var(--color-bg)
+  // When the mobile nav is open, push the content off-screen. :scope targets
+  // the #container that holds .mobile-nav-on, so only the wrap moves (the
+  // nav is a direct sibling, not a child, so it stays put and is revealed).
+  #container.mobile-nav-on &
+    left: 100%
 
-// The mobile nav is a bottom sheet, shown only while body has .mobile-nav-on.
-body.mobile-nav-on #wrap
-  overflow: hidden
-
+// Dark scrim behind the off-canvas mobile nav; visible only while open.
 #mobile-nav-backdrop
   position: absolute
-  inset: 0
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
   background: rgba(0, 0, 0, 0.5)
   z-index: 1
   display: none
+  #container.mobile-nav-on &
+    display: block
 
 @import "_extend"
 @import "_partial/header"
